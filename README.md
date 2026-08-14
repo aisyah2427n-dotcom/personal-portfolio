@@ -41,7 +41,7 @@
 ### 🌸 Tentang Saya
 
 <p align="justify" style="font-family: sans-serif; line-height: 1.6; color: #444444;">
-Saya adalah seorang siswi SMA kejuruan yang bertanggung jawab dan disiplin, jurusan Rekayasa Perangkat Lunak. Saya memiliki minat yang kuat dalam teknologi dan pengembangan perangkat lunak, dan saya selalu bersedia mempelajari hal-hal baru.
+Saya adalah seorang siswi SMK kejuruan yang bertanggung jawab dan disiplin, jurusan Rekayasa Perangkat Lunak. Saya memiliki minat yang kuat dalam teknologi dan pengembangan perangkat lunak, dan saya selalu bersedia mempelajari hal-hal baru.
 </p>
 
 <br>
