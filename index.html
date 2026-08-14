@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - SYAIRA NOVKA SYAIDINA</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- COLOR PALETTE & VARIABLES --- */
+        :root {
+            --bg-cream: #F4F8FA;
+            --soft-blue: #E1F0DA;
+            --soft-blue-bg: #EBF4F6;
+            --accent-blue: #4A90E2;
+            --accent-hover: #357ABD;
+            --text-dark: #2C3E50;
+            --text-muted: #607D8B;
+            --white-glass: rgba(255, 255, 255, 0.88);
+            --card-border: rgba(74, 144, 226, 0.18);
+            --shadow: 0 12px 35px rgba(74, 144, 226, 0.1);
+            --shadow-hover: 0 18px 45px rgba(74, 144, 226, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-image: 
+                linear-gradient(rgba(74, 144, 226, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 144, 226, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+            animation: gridPulse 8s ease-in-out infinite alternate;
+            overflow-x: hidden;
+        }
+
+        @keyframes gridPulse {
+            0% { background-size: 32px 32px; }
+            100% { background-size: 36px 36px; }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(244, 248, 250, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            padding: 110px 8% 70px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 45px;
+            text-align: center;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-blue);
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        /* --- HERO SECTION & DYNAMIC ANIMATIONS --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            background: var(--white-glass);
+            backdrop-filter: blur(16px);
+            padding: 55px 45px;
+            border-radius: 28px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            max-width: 780px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: floatHero 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatHero {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-12px); }
+        }
+
+        .profile-img-container {
+            width: 165px;
+            height: 165px;
+            border-radius: 50%;
+            padding: 6px;
+            background: linear-gradient(135deg, var(--accent-blue), #90CAF9);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+            margin-bottom: 22px;
+            position: relative;
+            animation: pulseGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(74, 144, 226, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(74, 144, 226, 0.6); }
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img-container:hover .profile-img {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .hero-subtitle {
+            display: inline-block;
+            padding: 8px 22px;
+            background: var(--soft-blue-bg);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--text-dark);
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            max-width: 620px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 34px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.35);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(74, 144, 226, 0.45);
+        }
+
+        /* --- ABOUT ME --- */
+        .about-container {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            padding: 45px;
+            border-radius: 24px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-container:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: var(--text-muted);
+            text-align: justify;
+            font-size: 1rem;
+        }
+
+        .info-list {
+            list-style: none;
+            background: var(--soft-blue-bg);
+            padding: 30px;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-list li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .info-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-list i {
+            color: var(--accent-blue);
+            width: 22px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* --- EXPERIENCE & EDUCATION --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            padding: 32px;
+            border-radius: 22px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0%;
+            background: var(--accent-blue);
+            transition: height 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card:hover::before {
+            height: 100%;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .card .date {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .skills-tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            background: var(--soft-blue-bg);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .tag {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 28px;
+        }
+
+        .project-card {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            border-radius: 22px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            padding: 32px;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .project-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            padding: 38px;
+            border-radius: 22px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--soft-blue-bg);
+            color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.1);
+        }
+
+        .social-btn:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-4px) rotate(8deg);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+        }
+
+        form {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            padding: 38px;
+            border-radius: 22px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid #D0E1E9;
+            background: rgba(255, 255, 255, 0.95);
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-border);
+            background: rgba(244, 248, 250, 0.9);
+        }
+
+        /* --- SCROLL REVEAL ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; }
+            section { padding: 90px 5% 45px; }
+            .about-container, .contact-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-content { padding: 40px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <div class="profile-img-container">
+                <img src="saira.png" alt="SYAIRA NOVKA SYAIDINA" class="profile-img">
+            </div>
+
+            <span class="hero-subtitle">Software Engineering Student</span>
+            <h1>Syaira Novka Syaidina</h1>
+            <p>Aspiring Software Engineer focused on front-end web development, clean system architecture, and modern UI design.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-container fade-in">
+            <div class="about-text">
+                <p>I am a Software Engineering student at SMK Negeri 1 Semparuk, driven by a strong passion for web development and software architecture.</p>
+                <p>Dedicated to creating clean, user-friendly digital experiences while continuously broadening my technical toolkit through hands-on projects and software development practices.</p>
+            </div>
+            <ul class="info-list">
+                <li><i class="fa-solid fa-location-dot"></i> Semparuk, West Kalimantan</li>
+                <li><i class="fa-solid fa-envelope"></i> aisyah2427n@gmail.com</li>
+                <li><i class="fa-solid fa-graduation-cap"></i> SMKN 1 Semparuk (2024–2027)</li>
+                <li><i class="fa-solid fa-language"></i> Indonesian (Native), English (Elementary)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION -->
+    <section id="experience">
+        <h2 class="section-title fade-in">Education & Skills</h2>
+        <div class="grid-2 fade-in">
+            <div class="card">
+                <h3>SMK Negeri 1 Semparuk</h3>
+                <span class="date">2024 - 2027</span>
+                <p><strong>Major:</strong> Software Engineering (RPL)</p>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-top:8px;">Focusing on software logic, database fundamentals, object-oriented programming, and responsive web design.</p>
+            </div>
+            <div class="card">
+                <h3>MTs Negeri 2 Sambas</h3>
+                <span class="date">2021 - 2024</span>
+                <p><strong>Education:</strong> Junior High School</p>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-top:8px;">Built academic excellence and initiated fundamental technical interests in computer science and technology.</p>
+            </div>
+            <div class="card">
+                <h3>Technical Proficiencies</h3>
+                <span class="date">Core Competencies</span>
+                <p>Skilled in developing clean front-end interfaces and building structured application logic with modern tools.</p>
+                <div class="skills-tag">
+                    <span class="tag">HTML5 & CSS3</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">NetBeans</span>
+                    <span class="tag">Git & GitHub</span>
+                    <span class="tag">Ms Office</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <div class="projects-grid fade-in">
+            <div class="project-card">
+                <h4>Minimalist Portfolio Website</h4>
+                <p>A responsive, single-page personal portfolio featuring glassmorphism design, smooth scrolling animations, and direct form submission integration.</p>
+                <div class="skills-tag">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">Formspree</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h4>Java Application System</h4>
+                <p>Desktop software application developed using Java logic and NetBeans IDE, focusing on structured algorithms and clean architecture.</p>
+                <div class="skills-tag">
+                    <span class="tag">Java</span>
+                    <span class="tag">NetBeans</span>
+                    <span class="tag">OOP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title fade-in">Contact Me</h2>
+        <div class="contact-container fade-in">
+            <div class="contact-info">
+                <div>
+                    <h3>Let's Connect</h3>
+                    <p style="color: var(--text-muted); margin-top: 12px;">Feel free to reach out for collaborations, inquiries, or professional opportunities. I am always open to discussing new ideas!</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://wa.me/62895702163404" target="_blank" class="social-btn" title="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/snvkaae?igsh=MWdtODJkOHl6Z2JpNw==" target="_blank" class="social-btn" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="mailto:aisyah2427n@gmail.com" class="social-btn" title="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <form action="https://formspree.io/f/mgawzpok" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email Address" required>
+                <textarea name="message" rows="4" placeholder="Your Message..." required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SYAIRA NOVKA SYAIDINA. All rights reserved.</p>
+    </footer>
+
+    <!-- INTERACTIVE SCROLL REVEAL SCRIPT -->
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
