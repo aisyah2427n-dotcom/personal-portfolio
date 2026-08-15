@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - SYAIRA NOVKA SYAIDINA</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-cream: #F8FAFC;
+            --soft-blue-bg: #EBF4F6;
+            --accent-blue: #2563EB;
+            --accent-hover: #1D4ED8;
+            --text-dark: #0F172A;
+            --text-muted: #475569;
+            --white-glass: rgba(255, 255, 255, 0.92);
+            --card-border: rgba(203, 213, 225, 0.6);
+            --shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+            --shadow-hover: 0 20px 35px -5px rgba(37, 99, 235, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND DEKORASI RAME & ESTETIK (DI BELAKANG TAMPILAN) --- */
+        .bg-decorations {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+            background-image: radial-gradient(rgba(37, 99, 235, 0.08) 1.2px, transparent 1.2px);
+            background-size: 28px 28px;
+        }
+
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: floatBlob 12s infinite alternate ease-in-out;
+        }
+
+        .blob-1 {
+            top: -5%;
+            left: 10%;
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #93C5FD, #2563EB);
+        }
+
+        .blob-2 {
+            top: 40%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #60A5FA, #3B82F6);
+            animation-delay: -4s;
+        }
+
+        .blob-3 {
+            bottom: -10%;
+            left: 20%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #BFDBFE, #60A5FA);
+            animation-delay: -8s;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, 30px) scale(1.08); }
+            100% { transform: translate(-30px, 50px) scale(0.95); }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- MODERN FLOATING NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 900px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            padding: 120px 8% 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-blue);
+            background: var(--soft-blue-bg);
+            padding: 4px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+            border: 1px solid rgba(37, 99, 235, 0.12);
+        }
+
+        .section-title {
+            font-size: 2.1rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 44px;
+            height: 4px;
+            background: var(--accent-blue);
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero-content {
+            background: var(--white-glass);
+            backdrop-filter: blur(16px);
+            padding: 60px 45px;
+            border-radius: 32px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            max-width: 740px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+        }
+
+        .profile-img-container {
+            width: 155px;
+            height: 155px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--accent-blue), #93C5FD);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.22);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        /* DEKORASI SUBTITLE TAMPAN TANPA TULISAN </> */
+        .hero-subtitle {
+            display: inline-block;
+            padding: 6px 18px;
+            background: var(--soft-blue-bg);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(37, 99, 235, 0.35);
+        }
+
+        /* --- ABOUT ME --- */
+        .about-container {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            padding: 45px;
+            border-radius: 28px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            text-align: left;
+            line-height: 1.75;
+        }
+
+        .info-list {
+            list-style: none;
+            background: var(--soft-blue-bg);
+            padding: 28px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .info-list li {
+            font-size: 0.92rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .info-list i {
+            color: var(--accent-blue);
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* --- BENTO GRID SYSTEM FOR EDUCATION & SKILLS --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .card-education {
+            grid-column: span 6;
+        }
+
+        .card-skills {
+            grid-column: span 6;
+        }
+
+        .bento-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .bento-card h3 i {
+            color: var(--accent-blue);
+            background: var(--soft-blue-bg);
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Timeline Style */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 18px;
+            border: 1px solid rgba(203, 213, 225, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: #FFFFFF;
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06);
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            background: var(--soft-blue-bg);
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .timeline-item h4 {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item .jurusan {
+            font-size: 0.88rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Skills Grid Style */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-box {
+            background: var(--soft-blue-bg);
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-box:hover {
+            background: white;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .skill-box i {
+            font-size: 1.7rem;
+            color: var(--accent-blue);
+        }
+
+        .skill-box h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            padding: 35px;
+            border-radius: 26px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .project-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .skills-tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--soft-blue-bg);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(37, 99, 235, 0.12);
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .contact-info, form {
+            background: var(--white-glass);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 28px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 46px;
+            height: 46px;
+            background: var(--soft-blue-bg);
+            color: var(--accent-blue);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .social-btn:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid #CBD5E1;
+            background: rgba(255, 255, 255, 0.95);
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-border);
+            background: rgba(248, 250, 252, 0.9);
+            margin-top: 40px;
+        }
+
+        /* --- SCROLL ANIMATION --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .card-education, .card-skills { grid-column: span 12; }
+            .about-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            nav { top: 12px; width: 95%; padding: 0 16px; }
+            .nav-links { display: none; }
+            section { padding: 90px 5% 40px; }
+            .contact-container { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-content { padding: 45px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ELEMEN DEKORASI BACKGROUND Latar Belakang -->
+    <div class="bg-decorations">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        <div class="bg-blob blob-3"></div>
+    </div>
+
+    <!-- REVISED FLOATING NAVBAR -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#experience">Pendidikan</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <div class="profile-img-container">
+                <img src="saira.png" alt="SYAIRA NOVKA SYAIDINA" class="profile-img">
+            </div>
+
+            <!-- SUBTITLE TANPA TEXT </> -->
+            <span class="hero-subtitle">Software Engineering Student</span>
+
+            <h1>SYAIRA NOVKA SYAIDINA</h1>
+            <a href="#contact" class="btn">
+                <span>Hubungi Saya</span>
+                <i class="fa-solid fa-arrow-right" style="font-size: 0.85rem;"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+        <div class="section-header fade-in">
+            <span class="section-tag">Profil Ringkas</span>
+            <h2 class="section-title">Tentang Saya</h2>
+        </div>
+        <div class="about-container fade-in">
+            <div class="about-text">
+                <p>Saya adalah siswi jurusan Rekayasa Perangkat Lunak (RPL) di SMK Negeri 1 Semparuk dengan ketertarikan mendalam pada bidang pemrograman dan pengembangan web.</p>
+                <p>Selama proses belajar, saya fokus menguasai pembuatan antarmuka web yang bersih, responsif, dan mudah digunakan. Selain itu, saya juga terus mengasah logika pemrograman untuk memecahkan masalah secara efektif serta menciptakan solusi digital yang bermanfaat.</p>
+            </div>
+            <ul class="info-list">
+                <li>
+                    <i class="fa-solid fa-location-dot"></i> 
+                    <span>Jl. Pertasi Kencana Semparuk, GG Keluarga RT 14/RW 15 No 16, Kalimantan Barat</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span>aisyah2427n@gmail.com</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-graduation-cap"></i> 
+                    <span>SMKN 1 Semparuk (2024–2027)</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-language"></i> 
+                    <span>Bahasa Indonesia, Inggris (Dasar)</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION -->
+    <section id="experience">
+        <div class="section-header fade-in">
+            <span class="section-tag">Kualifikasi Akademik</span>
+            <h2 class="section-title">Pendidikan & Keahlian</h2>
+        </div>
+        <div class="bento-grid fade-in">
+            
+            <!-- Riwayat Pendidikan -->
+            <div class="bento-card card-education">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-badge">2024 - 2027</span>
+                        <h4>SMK Negeri 1 Semparuk</h4>
+                        <p class="jurusan">Rekayasa Perangkat Lunak (RPL)</p>
+                        <p>Fokus mempelajari dasar-dasar pengembangan web modern, konsep Pemrograman Berorientasi Objek (PBO), serta pengelolaan basis data.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-badge">2021 - 2024</span>
+                        <h4>MTs Negeri 2 Sambas</h4>
+                        <p class="jurusan">Sekolah Menengah Pertama</p>
+                        <p>Aktif dalam kegiatan akademik serta mendalami eksplorasi dasar di bidang teknologi informasi dan sains.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keahlian Praktis -->
+            <div class="bento-card card-skills">
+                <h3><i class="fa-solid fa-laptop-code"></i> Keahlian Praktis</h3>
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <i class="fa-brands fa-html5"></i>
+                        <div>
+                            <h4>HTML5 & CSS3</h4>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Tampilan Web Front-End</p>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fa-brands fa-java"></i>
+                        <div>
+                            <h4>Java</h4>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Aplikasi Desktop</p>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fa-solid fa-code"></i>
+                        <div>
+                            <h4>NetBeans IDE</h4>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Perangkat Pengembangan</p>
+                        </div>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fa-solid fa-file-word"></i>
+                        <div>
+                            <h4>Microsoft Office</h4>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Dokumentasi Data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-header fade-in">
+            <span class="section-tag">Portofolio Kunci</span>
+            <h2 class="section-title">Proyek Saya</h2>
+        </div>
+        <div class="projects-grid fade-in">
+            <div class="project-card">
+                <h4>Website Portfolio Modern</h4>
+                <p>Portofolio personal interaktif dengan tampilan responsif, Glassmorphism, dan alur antarmuka yang ramah pengguna.</p>
+                <div class="skills-tag">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h4>Aplikasi Pemrograman Java</h4>
+                <p>Aplikasi desktop berbasis logika dasar yang dikembangkan menggunakan Java dan NetBeans IDE.</p>
+                <div class="skills-tag">
+                    <span class="tag">Java</span>
+                    <span class="tag">NetBeans</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-header fade-in">
+            <span class="section-tag">Komunikasi</span>
+            <h2 class="section-title">Hubungi Saya</h2>
+        </div>
+        <div class="contact-container fade-in">
+            <div class="contact-info">
+                <h3>Mari Terhubung!</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Punya pertanyaan, proyek menarik, atau ingin sekadar bertegur sapa? Kirimkan pesan melalui formulir atau media sosial saya di bawah ini.</p>
+                
+                <div class="social-links">
+                    <a href="https://wa.me/62895702163404" target="_blank" class="social-btn" title="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/snvkaae?igsh=MWdtODJkOHl6Z2JpNw==" target="_blank" class="social-btn" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/4prlss" target="_blank" class="social-btn" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="mailto:aisyah2427n@gmail.com" class="social-btn" title="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- FORM FORMSPREE -->
+            <form action="https://formspree.io/f/mgawzpok" method="POST">
+                <input type="text" name="name" placeholder="Nama Anda" required>
+                <input type="email" name="email" placeholder="Email Anda" required>
+                <textarea name="message" rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SYAIRA NOVKA SYAIDINA. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <!-- SCRIPT ANIMASI SCROLL -->
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -40px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
